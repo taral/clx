@@ -71,6 +71,7 @@
     String className = request.getParameter("c");
     if (className != null && className.length() > 0) {
         try {
+	    className = className.replace('/','.');
             Class<?> c = Class.forName(className.trim());
             CodeSource codeSource = c.getProtectionDomain().getCodeSource();
             if (codeSource == null) {
